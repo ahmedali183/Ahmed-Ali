@@ -1,24 +1,34 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void speed()
+{
+    char acc;
+    float x,z,m;
+
+    printf("\n enter initial speed of catcher : ");
+    scanf("%f",&z);
+
+    printf("\n enter weight of body : ");
+    scanf("%f",&m);
+    printf("\n enter acceleration (a or g) :");
+    scanf("%s",&acc);
+
+    if(acc=='a'){printf("\n enter acceleration value= \n"); scanf("%f",&x);}
+    else if(acc=='g'){x=9.81;}
+
+    printf("\n speed of dropping= \n");
+    printf("%f \n",m*x);
+
+    printf("speed difference= %f\n",z-(m*x));
+
+}
 int main()
 {
-        int l;
+    for(;;)
+    {
+   speed();
+    }
 
-     for(;;)
-        {
-           printf("enter no of output lines=  ");
-           scanf("%i",&l);
-
-           for(int i=0;i<l;i++) //create row
-            {
-             for(int n=0;n<((i*2)-1);n++) //create stars(shape)
-                {
-                printf("*");
-                }
-                printf("\n");
-            }
-         }
-        return 0;
-
+    return 0;
 }

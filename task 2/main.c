@@ -1,69 +1,41 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int add (int x, int y)
-{
-   return x+y;
-}
+//selection sort to sort numbers. This code implements selection sort algorithm
+//to arrange numbers of an array in ascending order.
 
-int sub(int x,int y)
-{
-    return x-y;
-}
-
-int mult(int x,int y)
-{
-    return x*y;
-}
-
-void calculator()
-{ int z,x,y,m;
-
-                printf("Please enter your order from (1 to 3) \n ");
-                scanf("%i",&z);
-
-                printf("Please enter x \n ");
-                scanf("%i",&x);
-
-                printf("Please enter y \n ");
-                scanf("%i",&y);
-
-                if(z==1){m=add(x,y);}
-                else if(z==2){m=sub(x,y);}
-                else if(z==3){m=mult(x,y);}
-
-                printf("m=%i \n",m);
-          }
-
-
-
-
-
-void cinema()
-{   int o;
-
-
-
-               printf("Please enter your order from (1 to 3) \n ");
-            scanf("%i",&o);
-
-             if(o==1){printf("normal ticket 50 LE \n");}
-             else if(o==2){printf("vip ticket \n");}
-             else if(o==3){printf("vip ticket + pop corn \n");}
-
-
-}
 int main()
 {
-     int w;
-    for(;;)
-    {   printf("please enter 1 for calculator,2 for cinema ticket \n");
-        scanf("%i",&w);
+  int a[100],x,position,swap;
 
-       if (w==1){calculator(w);}
-       else if (w==2){cinema(w);}
+  printf("enter number of elements \n");
+  scanf("%i",&x);
 
-        }
+  printf("enter %i integers \n",x);
+  for(int i=0;i<x;i++)
+  scanf("%i",&a[i]);
+
+  for(int i=0;i<x;i++) //to go for all the array numbers
+  {
+    position=i; //would point to each number by consecutive way
+    for(int d=i+1;d<x;d++) //this would count (x-1) times
+    {
+      if(a[position]>a[d]) //test which is the bigger number,the current number(a[position])or next number (a[d])
+      position=d;   //this line i write to make a situation((position!=i)) to swap numbers,to make position at the next number
+    }
+    if(position!=i) //at this situation we can swap numbers
+    {
+      swap=a[i];      //this would swap the positions of current number with next number(if current>next)
+      a[i]=a[position]; //in this line position=d as it is now in the next number
+      a[position]=swap;
+    }
+  }
+
+  printf("Sorted list in ascending order:\n");
+
+  for(int i=0;i<x;i++)
+    printf("%i \n",a[i]);
+
 
     return 0;
 }

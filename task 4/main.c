@@ -1,19 +1,30 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void speed()
+{
+    char acc;
+    float x,m;
+
+    printf("\n enter weight of body");
+    scanf("%f",&m);
+    printf("enter acceleration (a or g)");
+    scanf("%s",&acc);
+
+    if(acc=='a'||acc=='A'){printf("enter acceleration value= \n"); scanf("%f",&x);}
+    else if(acc=='g'||acc=='G'){x=9.81;}
+
+    printf("speed of dropping= ");
+    printf("%f",m*x);
+
+
+}
 int main()
 {
-
-   for(;;)
+    for(;;)
     {
-    int x=0,y=1; //notice y=1
-
-    printf("\n enter number to be powered \n");
-    scanf("%i",&x);
-
-    for(int i=0;i<x;i++){y=y*x;} //new idea how to use syntax to get power of number(3-> 3*3*3)
-
-    printf("\n result= %i",y);
+   speed();
     }
+
     return 0;
 }
